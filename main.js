@@ -16,16 +16,21 @@ function setup() {
     columns = floor(width / widthHeight);
     rows = floor(height / widthHeight);
 
-    grid = new make2DArray(columns, rows);
+    grid = make2DArray(columns, rows);
 
     for (var i = 0; i < columns; i++) {
         for (var j = 0; j < rows; j++) {
-            grid[i][j] = new Cell();
+            grid[i][j] = new Cell(i * widthHeight, j * widthHeight, widthHeight);
         }
     }
 
 }
 
 function draw() {
-
+    background(0);
+    for (var i = 0; i < columns; i++) {
+        for (var j = 0; j < rows; j++) {
+            grid[i][j].show();
+        }
+    }
 }
