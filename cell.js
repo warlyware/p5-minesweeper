@@ -2,8 +2,8 @@ function Cell(x, y, widthHeight) {
     this.x = x;
     this.y = y;
     this.widthHeight = widthHeight;
-    this.bomb = true;
-    this.revealed = true;
+    this.bomb = random(1) < 0.5;
+    this.revealed = false;
 }
 
 Cell.prototype.show = function() {
@@ -15,4 +15,10 @@ Cell.prototype.show = function() {
         var halfWidthHeight = this.widthHeight * 0.5;
         ellipse(this.x + halfWidthHeight, this.y + halfWidthHeight, halfWidthHeight);
     }
+}
+
+Cell.prototype.contains = function(x, y) {
+    var xIsInBounds = x > this.x && x < this.x + this.widthHeight;
+    var yIsInBounds = y > this.y && y < this.y + this.widthHeight;
+    return xIsInBounds && yIsInBounds;
 }
