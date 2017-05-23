@@ -3,24 +3,24 @@ function make2DArray (columns, rows) {
     for (var i = 0; i < array.length; i++) {
         array[i] = new Array(columns);
     }
-}
-
-function Cell() {
-    this.bomb = true;
-    this.revealed = true;
+    return array;
 }
 
 var grid;
-var columns = 20;
-var rows = 20;
+var columns;
+var rows;
+var widthHeight = 20;
 
 function setup() {
     createCanvas(200, 200);
+    columns = floor(width / widthHeight);
+    rows = floor(height / widthHeight);
+
     grid = new make2DArray(columns, rows);
 
     for (var i = 0; i < columns; i++) {
         for (var j = 0; j < rows; j++) {
-            grid[i][j].show();
+            grid[i][j] = new Cell();
         }
     }
 
