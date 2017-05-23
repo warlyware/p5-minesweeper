@@ -12,7 +12,7 @@ var rows;
 var widthHeight = 20;
 
 function setup() {
-    createCanvas(200, 200);
+    createCanvas(201, 201);
     columns = floor(width / widthHeight);
     rows = floor(height / widthHeight);
 
@@ -27,7 +27,7 @@ function setup() {
 }
 
 function draw() {
-    background(0);
+    background(255);
     for (var i = 0; i < columns; i++) {
         for (var j = 0; j < rows; j++) {
             grid[i][j].show();
